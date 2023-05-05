@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- ============= REMIX ICONS ============== -->
+
+    <title>Abogada - Karen Lopez</title>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <link rel="icon" type="image/png" href="assets/img/icon.png">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card__border">
+                <img src="assets/img/karen.jpg" alt="card image" class="card__img">
+            </div>
+
+            <h3 class="card__name"><span class="auto-type"></span></h3>
+            <span class="card__profession">Abogada</span>
+
+            <div class="card__social" id="card-social">
+                <div class="card__social-control">
+                    <!-- Toggle button -->
+                    <div class="card__social-toggle" id="card-toggle">
+                        <i class="ri-add-line"></i>
+                    </div>
+
+                    <span class="card__social-text">Contactame!</span>
+
+                    <!-- Toggle button -->
+                    <ul class="card__social-list">
+                        <a href="https://www.facebook.com/profile.php?id=725768845" target="_blank" class="card__social-link">
+                            <i class="ri-facebook-circle-fill"></i>
+                        </a>
+                        <a href="#" id="whatsapp-person" target="_blank" class="card__social-link">
+                            <i class="ri-whatsapp-fill"></i>
+                        </a>
+                        <a href="#" id="send-email" class="card__social-link">
+                            <i class="ri-mail-send-fill"></i>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ============= MAIN JS ============== -->
+    <script src="assets/js/main.js"></script>
+</body>
+<script>
+    var typed = new Typed(".auto-type", {
+        strings: ["Hola!", "soy...", "Karen Viviana Lopez"],
+        typeSpeed: 50,
+        backSpeed: 50,
+        loop: true
+    })
+</script>
+<script>
+    // Selecciona el enlace y añade un evento "click"
+    const sendEmailLink = document.getElementById("send-email");
+    sendEmailLink.addEventListener("click", function(event) {
+      // Previene el comportamiento predeterminado del enlace
+      event.preventDefault();
+      
+      // Dirección de correo electrónico de la persona a la que se enviará el correo
+      const emailAddress = "kren.sar@gmail.com";
+      
+      // Asunto del correo
+      const emailSubject = "Hola.";
+      
+      // Cuerpo del correo
+      const emailBody = "Escribe aquí el contenido del correo";
+      
+      // Codifica los parámetros para que puedan ser incluidos en un URL
+      const encodedEmailAddress = encodeURIComponent(emailAddress);
+      const encodedEmailSubject = encodeURIComponent(emailSubject);
+      const encodedEmailBody = encodeURIComponent(emailBody);
+      
+      // URL para abrir el cliente de correo electrónico predeterminado
+      const emailUrl = `mailto:${encodedEmailAddress}?subject=${encodedEmailSubject}&body=${encodedEmailBody}`;
+      
+      // Abre una nueva ventana con el cliente de correo electrónico predeterminado y prellena los campos del correo
+      window.open(emailUrl);
+    });
+  </script>
+
+<script>
+    // Selecciona el enlace y añade un evento "click"
+    const whatsappPersonLink = document.getElementById("whatsapp-person");
+    whatsappPersonLink.addEventListener("click", function(event) {
+      // Previene el comportamiento predeterminado del enlace
+      event.preventDefault();
+      
+      // Número de teléfono de la persona a la que se enviará el mensaje
+      const phoneNumber = "+573205355975";
+      
+      // Mensaje que se enviará a la persona
+      const message = "¡Buen día, abogada! ¿Cómo estás?";
+      
+      // URL para abrir la aplicación de WhatsApp
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      
+      // Abre la aplicación de WhatsApp del dispositivo
+      window.location.href = whatsappUrl;
+    });
+  </script>
+</html>
